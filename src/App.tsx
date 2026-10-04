@@ -97,6 +97,12 @@ export default function App() {
               </ul>
 
               <h2>Core Engineering Projects</h2>
+              <div class="job-title">Toyota Corolla Front Brake Rotor</div>
+              <ul>
+                <li>Reverse-engineered & parametrically modeled Toyota Corolla front brake rotor with 5-lug PCD pattern in Fusion 360.</li>
+                <li>Authored 2D engineering drawing (FDBR-001), GD&T tolerancing, section views, and grey cast iron material specs.</li>
+              </ul>
+
               <div class="job-title">Real-Time Spatio-Temporal Pressure Mapping in Contact Mechanics</div>
               <ul>
                 <li>Developed low-cost pressure matrix mapping array using Velostat piezoresistive foil.</li>

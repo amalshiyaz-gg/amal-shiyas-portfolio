@@ -1,19 +1,69 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Settings, Sliders, Layers, Eye, Code, DraftingCompass } from "lucide-react";
+import { ChevronLeft, ChevronRight, Settings, Sliders, Layers, Eye, Code, DraftingCompass, Upload, FileText, Download, Maximize2, CheckCircle2, Image as ImageIcon, X } from "lucide-react";
 
 import velostatTop from "../assets/images/velostat_top_1781816294339.jpg";
 import fsr1 from "../assets/images/fsr_applications.png";
 import wheelchairImage from "../assets/images/wc.jpg";
+import toyotaRotorIso from "../assets/images/toyota_brake_rotor_iso.png";
+import toyotaRotorSide from "../assets/images/toyota_brake_rotor_side.png";
+import toyotaRotorTop from "../assets/images/toyota_brake_rotor_top.png";
+import toyotaRotorHub from "../assets/images/toyota_brake_rotor_hub.png";
+import toyotaRotorDrawing from "../assets/images/toyota_brake_rotor_drawing.png";
+
 export default function Projects() {
   // Slider states for projects
+  const [rotorIndex, setRotorIndex] = useState(0);
   const [velostatIndex, setVelostatIndex] = useState(0);
   const [fsrIndex, setFsrIndex] = useState(0);
 
   // Modal or Inspector tab states for each project
+  const [activeTabRotor, setActiveTabRotor] = useState<"renders" | "drawing" | "standards">("renders");
+  const [customDrawingUrl, setCustomDrawingUrl] = useState<string | null>(null);
+  const [drawingFileName, setDrawingFileName] = useState<string>("FDBR-001_Front_Brake_Disc_Rotor.png");
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxImg, setLightboxImg] = useState<string>("");
+
   const [activeTab1, setActiveTab1] = useState<"viewer" | "blueprint">("viewer");
   const [activeTab2, setActiveTab2] = useState<"viewer" | "blueprint">("viewer");
 
-  // Project 1: Velostat Pressuring Mapping Enclosure slideshow data
+  // Project 01: Toyota Corolla Front Brake Rotor 3D Renders
+  const rotorRenderSlides = [
+    {
+      src: toyotaRotorIso,
+      alt: "Toyota Corolla Front Brake Rotor Isometric 3D Render",
+      label: "Isometric 3D Perspective Render",
+      shortLabel: "ISO View",
+    },
+    {
+      src: toyotaRotorSide,
+      alt: "Toyota Corolla Front Brake Rotor Side Profile Elevation Render",
+      label: "Side Elevation Profile Render",
+      shortLabel: "Side View",
+    },
+    {
+      src: toyotaRotorTop,
+      alt: "Toyota Corolla Front Brake Rotor Top Orthographic Plan Render",
+      label: "Top-Down Plan Orthographic Render",
+      shortLabel: "Top View",
+    },
+    {
+      src: toyotaRotorHub,
+      alt: "Toyota Corolla Front Brake Rotor Hub & 5-Lug PCD Pattern Close-up",
+      label: "Hub & 5-Lug PCD Pattern Detail",
+      shortLabel: "Hub Detail",
+    },
+  ];
+
+  const handleDrawingUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const url = URL.createObjectURL(file);
+      setCustomDrawingUrl(url);
+      setDrawingFileName(file.name);
+    }
+  };
+
+  // Project 2: Velostat Pressuring Mapping Enclosure slideshow data
   const velostatSlides = [
     {
       type: "image",
@@ -31,7 +81,7 @@ export default function Projects() {
     },
   ];
 
-  // Project 2: FSR sensor mounting enclosure slideshow data
+  // Project 3: FSR sensor mounting enclosure slideshow data
   const fsrSlides = [
     {
       type: "image",
@@ -48,6 +98,13 @@ export default function Projects() {
       label: "Mechanical Part Tolerancing & Mating Clearances (CAD SVG)",
     },
   ];
+
+  const handleNextRotor = () => {
+    setRotorIndex((prev) => (prev + 1) % rotorRenderSlides.length);
+  };
+  const handlePrevRotor = () => {
+    setRotorIndex((prev) => (prev - 1 + rotorRenderSlides.length) % rotorRenderSlides.length);
+  };
 
   const handleNextVelostat = () => {
     setVelostatIndex((prev) => (prev + 1) % velostatSlides.length);
@@ -82,6 +139,261 @@ export default function Projects() {
           <p className="text-gray-400 text-sm mt-1 max-w-2xl">
             Surgical physical integration projects displaying assembly-first design methodologies, strict dimension control, robust wiring routes, and realistic physical prototypes.
           </p>
+        </div>
+
+        {/* ========================================================== */}
+        {/* PROJECT 1 CARD: Toyota Corolla Front Brake Rotor */}
+        {/* ========================================================== */}
+        <div className="p-6 md:p-8 rounded-lg bg-[#181818] border border-white/[0.03] hover:border-white/[0.08] transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+
+          {/* Viewport & Media Display Frame */}
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-4">
+            {/* Viewport Header Controls */}
+            <div className="flex items-center justify-between border-b border-white/[0.05] pb-3 flex-wrap gap-2">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D32F2F]" />
+                <span className="text-[10px] font-mono tracking-widest uppercase text-[#B0B0B0]">
+                  {activeTabRotor === "renders"
+                    ? `3D Render: ${rotorRenderSlides[rotorIndex].label}`
+                    : activeTabRotor === "drawing"
+                      ? "2D Engineering Drawing Sheet"
+                      : "CAD Specifications"}
+                </span>
+              </div>
+
+              {/* Viewport Navigation Tabs */}
+              <div className="flex gap-1">
+                <button
+                  onClick={() => setActiveTabRotor("renders")}
+                  className={`px-2 py-0.5 rounded text-[9px] font-mono uppercase border transition-all flex items-center gap-1 ${activeTabRotor === "renders"
+                    ? "text-[#D32F2F] bg-white/[0.03] border-[#D32F2F]/40 font-bold"
+                    : "text-gray-500 border-transparent hover:text-white"
+                    }`}
+                >
+                  <ImageIcon size={10} />
+                  3D Renders
+                </button>
+                <button
+                  onClick={() => setActiveTabRotor("drawing")}
+                  className={`px-2 py-0.5 rounded text-[9px] font-mono uppercase border transition-all flex items-center gap-1 ${activeTabRotor === "drawing"
+                    ? "text-[#D32F2F] bg-white/[0.03] border-[#D32F2F]/40 font-bold"
+                    : "text-gray-500 border-transparent hover:text-white"
+                    }`}
+                >
+                  <FileText size={10} />
+                  CAD Drawing
+                </button>
+                <button
+                  onClick={() => setActiveTabRotor("standards")}
+                  className={`px-2 py-0.5 rounded text-[9px] font-mono uppercase border transition-all flex items-center gap-1 ${activeTabRotor === "standards"
+                    ? "text-[#D32F2F] bg-white/[0.03] border-[#D32F2F]/40 font-bold"
+                    : "text-gray-500 border-transparent hover:text-white"
+                    }`}
+                >
+                  <DraftingCompass size={10} />
+                  Standards
+                </button>
+              </div>
+            </div>
+
+            {/* TAB 1: 3D RENDERS DISPLAY */}
+            {activeTabRotor === "renders" && (
+              <div className="space-y-3">
+                <div className="relative aspect-[4/3] bg-[#0A0A0A] rounded overflow-hidden border border-white/[0.05] flex items-center justify-center group">
+                  <img
+                    src={rotorRenderSlides[rotorIndex].src}
+                    alt={rotorRenderSlides[rotorIndex].alt}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-contain bg-[#111111] p-3 transition-all duration-300"
+                  />
+
+                  {/* Left/Right Slider Controls */}
+                  <button
+                    onClick={handlePrevRotor}
+                    className="absolute left-3 p-1.5 rounded bg-black/70 border border-white/10 hover:border-[#D32F2F] text-[#B0B0B0] hover:text-white transition-all pointer-events-auto"
+                    title="Previous Render"
+                  >
+                    <ChevronLeft size={16} />
+                  </button>
+                  <button
+                    onClick={handleNextRotor}
+                    className="absolute right-3 p-1.5 rounded bg-black/70 border border-white/10 hover:border-[#D32F2F] text-[#B0B0B0] hover:text-white transition-all pointer-events-auto"
+                    title="Next Render"
+                  >
+                    <ChevronRight size={16} />
+                  </button>
+
+                  {/* Zoom Fullscreen Button Overlay */}
+                  <button
+                    onClick={() => {
+                      setLightboxImg(rotorRenderSlides[rotorIndex].src);
+                      setIsLightboxOpen(true);
+                    }}
+                    className="absolute top-3 right-3 p-1.5 rounded bg-black/70 border border-white/10 hover:border-[#D32F2F] text-gray-300 hover:text-white transition-all opacity-0 group-hover:opacity-100 flex items-center gap-1 font-mono text-[9px]"
+                  >
+                    <Maximize2 size={12} />
+                    Expand
+                  </button>
+                </div>
+
+                {/* 4 Mini Render Selectors */}
+                <div className="grid grid-cols-4 gap-2">
+                  {rotorRenderSlides.map((slide, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setRotorIndex(idx)}
+                      className={`relative aspect-[4/3] rounded overflow-hidden border transition-all ${rotorIndex === idx
+                        ? "border-[#D32F2F] ring-1 ring-[#D32F2F]/50 opacity-100"
+                        : "border-white/[0.05] opacity-50 hover:opacity-100 hover:border-white/20"
+                        }`}
+                    >
+                      <img src={slide.src} alt={slide.shortLabel} className="w-full h-full object-cover bg-[#111]" />
+                      <div className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] font-mono text-center py-0.5 text-gray-300 truncate px-1">
+                        {slide.shortLabel}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* TAB 2: DEDICATED ENGINEERING CAD DRAWING & UPLOADER SPACE */}
+            {activeTabRotor === "drawing" && (
+              <div className="space-y-3">
+                <div className="relative aspect-[4/3] bg-[#0A0A0A] rounded overflow-hidden border border-white/[0.05] flex flex-col items-center justify-center group p-2">
+                  <img
+                    src={customDrawingUrl || toyotaRotorDrawing}
+                    alt="Toyota Corolla Front Brake Rotor 2D Technical Drawing"
+                    className="w-full h-full object-contain bg-white rounded transition-all duration-300"
+                  />
+
+                  {/* Zoom Lightbox Button */}
+                  <button
+                    onClick={() => {
+                      setLightboxImg(customDrawingUrl || toyotaRotorDrawing);
+                      setIsLightboxOpen(true);
+                    }}
+                    className="absolute top-4 right-4 p-2 rounded bg-black/80 border border-white/20 hover:border-[#D32F2F] text-white transition-all flex items-center gap-1.5 font-mono text-xs shadow-lg"
+                  >
+                    <Maximize2 size={14} />
+                    Zoom Sheet
+                  </button>
+                </div>
+
+                {/* Active Drawing Specs & Interactive Upload Zone */}
+                <div className="p-3 bg-[#111111] rounded border border-white/[0.05] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 font-mono text-xs text-[#B0B0B0]">
+                    <CheckCircle2 size={14} className="text-[#D32F2F] shrink-0" />
+                    <div className="truncate">
+                      <span className="text-white font-bold block truncate">{drawingFileName}</span>
+                      <span className="text-[10px] text-gray-500">DWG No: FDBR-001 | Scale 1:2 | Third Angle</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 shrink-0">
+                    <a
+                      href={customDrawingUrl || toyotaRotorDrawing}
+                      download={drawingFileName}
+                      className="px-2.5 py-1.5 rounded bg-black text-gray-300 hover:text-white border border-white/10 hover:border-white/30 text-[10px] font-mono flex items-center gap-1 transition-all"
+                    >
+                      <Download size={12} />
+                      Download
+                    </a>
+
+                    {/* Interactive File Upload Button */}
+                    <label className="px-2.5 py-1.5 rounded bg-[#D32F2F] hover:bg-[#B71C1C] text-white text-[10px] font-mono flex items-center gap-1 cursor-pointer transition-all">
+                      <Upload size={12} />
+                      Upload Drawing
+                      <input
+                        type="file"
+                        accept="image/*,.pdf,.dwg,.dxf"
+                        onChange={handleDrawingUpload}
+                        className="hidden"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* TAB 3: STANDARDS & TOLERANCES SPEC SHEET */}
+            {activeTabRotor === "standards" && (
+              <div className="aspect-[4/3] bg-[#0A0A0A] p-5 rounded border border-white/[0.05] flex flex-col justify-between font-mono text-xs">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2 text-[#D32F2F] border-b border-white/[0.05] pb-2">
+                    <DraftingCompass size={14} />
+                    <span>ENGINEERING SPECIFICATION METADATA (FDBR-001)</span>
+                  </div>
+                  <div className="space-y-2 text-[#B0B0B0]">
+                    <div className="flex justify-between"><span className="text-gray-500">DWG No / Rev:</span> <span className="text-white">FDBR-001 / Rev A</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Created By:</span> <span className="text-white">Amal Shiyas</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Component target:</span> <span className="text-white">Toyota Corolla Front Brake Rotor</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Material Selection:</span> <span className="text-white">Grey Cast Iron</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Units & Projection:</span> <span className="text-white">mm | Third Angle Projection (1:2 Scale)</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Outer Diameter (OD):</span> <span className="text-white">Ø 255.0 mm</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Bolt Pattern (PCD):</span> <span className="text-white">5x 72° Array @ Ø 114.3 mm</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Center Hub Bore:</span> <span className="text-white">Ø 62.0 mm</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Overall Rotor Height:</span> <span className="text-white">49.0 mm (Ventilated 10mm Gap)</span></div>
+                  </div>
+                </div>
+
+                <div className="p-2.5 rounded bg-white/[0.01] border border-white/[0.05] text-[10px] text-[#EF5350]">
+                  * Reverse-engineered using sketch revolve, extrude, 5-hole circular pattern array, chamfers, and fillets with full 2D technical drafting documentation.
+                </div>
+              </div>
+            )}
+
+          </div>
+
+          {/* Project Details */}
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-4">
+            <div className="space-y-4">
+              <span className="text-[10px] font-mono tracking-widest text-[#D32F2F] uppercase block">
+                Project 01 / Automotive CAD & Engineering
+              </span>
+              <h4 className="text-2xl font-bold text-white tracking-tight">
+                Toyota Corolla Front Brake Rotor
+              </h4>
+              <p className="text-[#D32F2F] text-xs font-mono">
+                Reverse-Engineered Automotive Component | Parametric CAD & Engineering Documentation
+              </p>
+
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                Reverse-engineered and parametrically modeled a Toyota Corolla front brake rotor using reference dimensions. Developed the rotor geometry using sketching, revolve, extrude, hole, circular pattern, chamfer and fillet features. Created a dimensioned engineering drawing with standard views, center marks, technical annotations and material specifications. Applied grey cast iron as the material and produced photorealistic CAD renders for visualization.
+              </p>
+
+              {/* Functional bullets */}
+              <div className="space-y-2 pt-2">
+                <span className="text-[11px] font-mono text-white/50 uppercase tracking-wider block">
+                  Engineering & Modeling Highlights:
+                </span>
+                <ul className="text-xs text-[#B0B0B0] space-y-1.5 list-inside list-disc">
+                  <li>Toyota Corolla front brake rotor reference geometry & parametric sketch setup.</li>
+                  <li>Revolve and feature-based modeling logic in Autodesk Fusion 360.</li>
+                  <li>5-lug bolt pattern array (Ø 114.3mm PCD @ 5x 72°) & center bore (Ø 62mm).</li>
+                  <li>Chamfers, fillets, and stress relief radii applied to high-wear regions.</li>
+                  <li>Grey Cast Iron material specification for optimal thermal dissipation.</li>
+                  <li>Full 2D engineering drawing (DWG No. FDBR-001) with third angle projection.</li>
+                  <li>Photorealistic Fusion 360 rendering and orthographic viewport presentation.</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Technology Chips */}
+            <div className="pt-4 border-t border-white/[0.05] space-y-3">
+              <div className="flex flex-wrap gap-1.5">
+                {["Autodesk Fusion 360", "Parametric CAD", "Engineering Drawing", "CAD Rendering", "Automotive Design", "Grey Cast Iron"].map((tag, i) => (
+                  <span
+                    key={i}
+                    className="px-2.5 py-1 rounded-sm bg-black text-gray-400 text-[10px] font-mono border border-white/[0.04]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
 
         {/* ========================================================== */}
@@ -265,7 +577,7 @@ export default function Projects() {
           <div className="lg:col-span-6 flex flex-col justify-between space-y-4">
             <div className="space-y-4">
               <span className="text-[10px] font-mono tracking-widest text-[#D32F2F] uppercase block">
-                Project 01 / Sensor Integration
+                Project 02 / Sensor Integration
               </span>
               <h4 className="text-2xl font-bold text-white tracking-tight">
                 Real-Time Spatio-Temporal Pressure Mapping in Contact Mechanics
@@ -315,7 +627,7 @@ export default function Projects() {
           <div className="lg:col-span-6 flex flex-col justify-between space-y-4 order-2 lg:order-1">
             <div className="space-y-4">
               <span className="text-[10px] font-mono tracking-widest text-[#D32F2F] uppercase block">
-                Project 02 / Enclosure Design
+                Project 03 / Enclosure Design
               </span>
               <h4 className="text-2xl font-bold text-white tracking-tight">
                 FSR Pressure Mapping Enclosure Design
@@ -544,7 +856,7 @@ export default function Projects() {
           <div className="lg:col-span-6 flex flex-col justify-between space-y-4">
             <div className="space-y-4">
               <span className="text-[10px] font-mono tracking-widest text-[#D32F2F] uppercase block">
-                Project 03 / Embedded Systems
+                Project 04 / Embedded Systems
               </span>
               <h4 className="text-2xl font-bold text-white tracking-tight">
                 Hand gesture control Wheelchair prototype
@@ -587,6 +899,30 @@ export default function Projects() {
         </div>
 
       </div>
+
+      {/* FULLSCREEN LIGHTBOX MODAL */}
+      {isLightboxOpen && (
+        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-4 sm:p-8">
+          <div className="w-full max-w-6xl flex justify-between items-center mb-4 border-b border-white/10 pb-3 font-mono text-xs text-gray-300">
+            <span className="text-[#D32F2F] font-bold">FULLSCREEN CAD INSPECTOR VIEWPORT</span>
+            <button
+              onClick={() => setIsLightboxOpen(false)}
+              className="p-2 rounded bg-white/10 hover:bg-[#D32F2F] text-white transition-all flex items-center gap-1"
+            >
+              <X size={16} />
+              <span className="text-[10px] hidden sm:inline">CLOSE</span>
+            </button>
+          </div>
+
+          <div className="relative w-full max-w-6xl h-[80vh] bg-[#0A0A0A] rounded border border-white/10 p-2 flex items-center justify-center overflow-auto">
+            <img
+              src={lightboxImg}
+              alt="Fullscreen CAD Preview"
+              className="max-w-full max-h-full object-contain"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
