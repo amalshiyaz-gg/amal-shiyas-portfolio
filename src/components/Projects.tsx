@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { ChevronLeft, ChevronRight, Settings, Sliders, Layers, Eye, Code, DraftingCompass, Upload, FileText, Download, Maximize2, CheckCircle2, Image as ImageIcon, X } from "lucide-react";
 
 import velostatTop from "../assets/images/velostat_top_1781816294339.jpg";
@@ -54,7 +54,7 @@ export default function Projects() {
     },
   ];
 
-  const handleDrawingUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDrawingUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const url = URL.createObjectURL(file);
