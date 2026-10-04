@@ -14,30 +14,34 @@ export default function About() {
         {/* Main Statement Card */}
         <div className="max-w-4xl space-y-6">
           <h3 className="text-3xl sm:text-4xl font-sans font-bold text-white tracking-tight leading-tight">
-            Bridging Creative Automotive Vision with Production-Ready Mechanical Precision.
+            Mechanical Engineering Graduate with Hands-On Manufacturing & Assembly Exposure.
           </h3>
 
           <p className="text-[#B0B0B0] text-sm sm:text-base leading-relaxed">
-            I am a Mechanical Engineering graduate with practical, active floor experience in assembly and manufacturing operations at <span className="text-white hover:text-[#EF5350] transition-colors font-semibold">Wipro Infrastructure Engineering</span>. This immersive experience gives me direct awareness of tolerances, assembly ergonomics, structural integrity, and shop-floor reality.
+            Mechanical Engineering graduate with hands-on exposure to manufacturing operations, assembly processes, inspection, and industrial practices across <span className="text-white font-semibold">Wipro Infrastructure Engineering</span>, <span className="text-white font-semibold">United Electrical Industries</span>, <span className="text-white font-semibold">KMML</span>, and <span className="text-white font-semibold">KEL</span>.
           </p>
 
           <p className="text-[#B0B0B0] text-sm sm:text-base leading-relaxed">
-            Using advanced <span className="text-white font-semibold">Fusion 360</span> workflows, I turn concepts into structurally sound, fully integrated physical prototypes. My goal is to leverage my mechanical foundations to design the next generation of safe, high-performance physical systems.
+            Proficient in <span className="text-white font-semibold">Autodesk Fusion 360</span>, SolidWorks, AutoCAD, engineering drawings (GD&T), and physical prototyping. Seeking opportunities to apply mechanical engineering fundamentals in automotive, product design, manufacturing, and related engineering roles.
           </p>
 
           {/* Quick Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 font-mono text-center md:text-left">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 font-mono text-center md:text-left">
             <div className="border-l border-[#D32F2F]/40 pl-4 py-2">
-              <span className="block text-xl font-bold text-white">100%</span>
-              <span className="text-[10px] text-[#B0B0B0] uppercase block mt-1">CAD Native (Fusion 360)</span>
+              <span className="block text-xl font-bold text-white">6.82 / 10</span>
+              <span className="text-[10px] text-[#B0B0B0] uppercase block mt-1">B.Tech CGPA (Amrita)</span>
             </div>
             <div className="border-l border-[#D32F2F]/40 pl-4 py-2">
-              <span className="block text-xl font-bold text-white">Apprenticeship</span>
-              <span className="text-[10px] text-[#B0B0B0] uppercase block mt-1">Wipro Infrastructure</span>
+              <span className="block text-xl font-bold text-white">4 Facilities</span>
+              <span className="text-[10px] text-[#B0B0B0] uppercase block mt-1">Industrial Internships</span>
             </div>
-            <div className="col-span-2 md:col-span-1 border-l border-[#D32F2F]/40 pl-4 py-2">
-              <span className="block text-xl font-bold text-[#D32F2F]">Automotive</span>
-              <span className="text-[10px] text-[#B0B0B0] uppercase block mt-1">End Target Goal</span>
+            <div className="border-l border-[#D32F2F]/40 pl-4 py-2">
+              <span className="block text-xl font-bold text-white">Rank 13</span>
+              <span className="text-[10px] text-[#B0B0B0] uppercase block mt-1">IKR 2025 Kart Racing</span>
+            </div>
+            <div className="border-l border-[#D32F2F]/40 pl-4 py-2">
+              <span className="block text-xl font-bold text-[#D32F2F]">Fusion 360</span>
+              <span className="text-[10px] text-[#B0B0B0] uppercase block mt-1">CAD & Drafting</span>
             </div>
           </div>
         </div>

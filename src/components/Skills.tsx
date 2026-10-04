@@ -1,41 +1,45 @@
-import { DraftingCompass, Hammer, Laptop, Wrench } from "lucide-react";
+import { DraftingCompass, Hammer, Cpu, ShieldCheck } from "lucide-react";
 
 export default function Skills() {
   const skillsData = [
     {
-      category: "CAD & DESIGN",
+      category: "DESIGN & PROTOTYPING",
       icon: DraftingCompass,
       items: [
-        { name: "Fusion 360", level: 95 },
-        { name: "Mechanical Design", level: 90 },
-        { name: "Product Development", level: 85 },
-        { name: "Engineering Drawings (GD&T)", level: 88 },
+        { name: "Autodesk Fusion 360", level: 95 },
+        { name: "SolidWorks & AutoCAD", level: 90 },
+        { name: "3D Printing & Physical Prototyping", level: 92 },
+        { name: "Engineering Drawings & GD&T", level: 88 },
       ],
     },
     {
-      category: "ENGINEERING",
+      category: "TESTING & VALIDATION",
+      icon: Cpu,
+      items: [
+        { name: "Experimental Testing & Data Acquisition", level: 90 },
+        { name: "Sensor Integration (Velostat/FSR)", level: 92 },
+        { name: "Arduino Controller Programming", level: 88 },
+        { name: "Hardware-in-the-Loop Validation", level: 85 },
+      ],
+    },
+    {
+      category: "ANALYSIS & COMPUTATION",
+      icon: ShieldCheck,
+      items: [
+        { name: "ANSYS (CFD & Airflow Simulation)", level: 85 },
+        { name: "Python (Data Acquisition & Visualisation)", level: 88 },
+        { name: "MATLAB Simulation", level: 80 },
+        { name: "Finite Element & Stress Analysis", level: 82 },
+      ],
+    },
+    {
+      category: "MANUFACTURING & OPERATIONS",
       icon: Hammer,
       items: [
-        { name: "Manufacturing Processes", level: 85 },
-        { name: "Assembly Operations", level: 92 },
-        { name: "Design Thinking", level: 88 },
-        { name: "Problem Solving", level: 90 },
-      ],
-    },
-    {
-      category: "PROGRAMMING",
-      icon: Laptop,
-      items: [
-        { name: "Python", level: 80 },
-        { name: "MATLAB", level: 75 },
-      ],
-    },
-    {
-      category: "TOOLS",
-      icon: Wrench,
-      items: [
-        { name: "Arduino", level: 85 },
-        { name: "GitHub", level: 80 },
+        { name: "Mechanical Assembly Operations", level: 95 },
+        { name: "Manufacturing Processes (Machining/Welding)", level: 90 },
+        { name: "Quality Control & Inspection Standards", level: 92 },
+        { name: "DFA / DFM Optimization", level: 88 },
       ],
     },
   ];

@@ -78,52 +78,71 @@ export default function App() {
             <body>
               <h1>Amal Shiyas</h1>
               <div class="meta">
-                Mechanical Engineer | CAD Specialist | Chennai, India<br/>
-                Email: amalgotbusiness@gmail.com | LinkedIn: linkedin.com/in/amalshiyas
+                Mechanical Engineering Graduate | CAD & Manufacturing Specialist<br/>
+                Email: amalshiyazabdulrahman@gmail.com | Phone: +91 9037101027 | Location: Kollam, India
               </div>
 
-              <h2>Career Objective</h2>
+              <h2>Profile</h2>
               <p style="font-size: 12px;">
-                Mechanical Engineering graduate with hand-on experience in manufacturing and assembly operations at Wipro Infrastructure Engineering. Passionate about transitioning into Automotive Design, CAD modeling, product development, and engineering leadership.
+                Mechanical Engineering graduate with hands-on exposure to manufacturing operations, assembly processes, inspection, and industrial practices. Experienced in mechanical CAD modeling and engineering documentation through academic and personal projects. Proficient in Autodesk Fusion 360 and familiar with SolidWorks, AutoCAD, engineering drawings, and basic engineering analysis. Seeking opportunities to apply mechanical engineering fundamentals in automotive, product design, manufacturing, and related engineering roles.
               </p>
 
-              <h2>Professional Experience</h2>
-              <div class="job-title">Apprentice Engineer - Assembly Operations</div>
-              <div class="job-meta">Wipro Infrastructure Engineering, Chennai (Active)</div>
+              <h2>Industrial Experience</h2>
+              <div class="job-title">Apprentice Engineer — Wipro Infrastructure Engineering (06/2026 – 07/2026)</div>
+              <div class="job-meta">Chennai, India</div>
               <ul>
-                <li>Acquiring immersive assembly exposure of advanced plant components & industrial machinery.</li>
-                <li>Audited process sheets, mechanical torque limits, and tolerance constraints on active production lines.</li>
-                <li>Coordinated alongside Senior leads to resolve shopfloor layouts and ergonomics.</li>
+                <li>Worked in the Hydraulics division supporting assembly and manufacturing operations.</li>
+                <li>Assisted in the assembly, inspection, and testing of hydraulic components and systems.</li>
+                <li>Followed industrial quality standards and safety procedures during production activities.</li>
+              </ul>
+
+              <div class="job-title">Intern — United Electrical Industries Limited (04/2025 – 05/2025)</div>
+              <div class="job-meta">Kollam, Kerala</div>
+              <ul>
+                <li>Gained hands-on exposure to industrial manufacturing processes, including machining, assembly, welding and electroplating.</li>
+                <li>Learned quality control and testing methods for electrical components, strengthening skills in inspection and compliance.</li>
+              </ul>
+
+              <div class="job-title">Intern — Kerala Minerals & Metals Ltd (08/2024 – 09/2024)</div>
+              <div class="job-meta">Kollam, India</div>
+              <ul>
+                <li>Gained hands-on experience in titanium dioxide manufacturing from mineral separation to final product.</li>
+              </ul>
+
+              <div class="job-title">Intern — Kerala Electrical & Allied Engineering Co. Ltd (10/2023 – 11/2023)</div>
+              <div class="job-meta">Kollam, India</div>
+              <ul>
+                <li>Applied mechanical engineering concepts in practical industrial settings at KEL.</li>
               </ul>
 
               <h2>Core Engineering Projects</h2>
-              <div class="job-title">Toyota Corolla Front Brake Rotor</div>
+              <div class="job-title">Toyota Corolla Front Brake Rotor — Autodesk Fusion 360</div>
               <ul>
-                <li>Reverse-engineered & parametrically modeled Toyota Corolla front brake rotor with 5-lug PCD pattern in Fusion 360.</li>
-                <li>Authored 2D engineering drawing (FDBR-001), GD&T tolerancing, section views, and grey cast iron material specs.</li>
+                <li>Designed a reference-based parametric CAD model incorporating hub geometry, center bore, 5-lug bolt pattern, chamfers, and fillets in Fusion 360.</li>
+                <li>Developed a dimensioned 2D engineering drawing (FDBR-001) and photorealistic CAD renders for technical documentation.</li>
               </ul>
 
               <div class="job-title">Real-Time Spatio-Temporal Pressure Mapping in Contact Mechanics</div>
               <ul>
-                <li>Developed low-cost pressure matrix mapping array using Velostat piezoresistive foil.</li>
-                <li>Engineered complete custom Fusion 360 sensor enclosure, wire harnesses, and structural bases.</li>
-              </ul>
-              
-              <div class="job-title">FSR Pressure Mapping Enclosure Design</div>
-              <ul>
-                <li>Authored structural housing for force-sensitive resistors maintaining clean wire clearance channels.</li>
+                <li>Designed and assembled a mechanical prototype integrating a 3D-printed enclosure, Velostat sensing matrix, Arduino, and electronics.</li>
+                <li>Investigated ghost readings and sensor interference; contributed to redesigning it as a scalable Velostat-based system.</li>
               </ul>
 
-              <div class="job-title">Smart Blind Spot Detection System</div>
+              <div class="job-title">Hand Gesture Control Wheelchair Prototype</div>
               <ul>
-                <li>Configured automotive ADAS safety systems matching ultrasonic sensors to integrated Arduino models.</li>
+                <li>Built a gesture-controlled wheelchair prototype translating hand movements into real-time directional control.</li>
               </ul>
+
+              <h2>Education & Credentials</h2>
+              <div class="job-title">B.Tech in Mechanical Engineering — Amrita Vishwa Vidyapeetham (2022 – 2026)</div>
+              <div class="job-meta">CGPA: 6.82 / 10.0 | Amritapuri Campus, Kollam</div>
 
               <h2>Core Competency Stack</h2>
               <div class="skills-grid">
-                <div><strong>CAD:</strong> Fusion 360, Product Development, Engineering Drafting, GD&T</div>
-                <div><strong>Engineering:</strong> Manufacturing, Assembly Ops, DFA, DFM</div>
-                <div><strong>Software:</strong> Python, Arduino Controller, MATLAB, GitHub, Workspace</div>
+                <div><strong>Mechanical Design:</strong> Fusion 360, SolidWorks, AutoCAD, 3D Printing, GD&T</div>
+                <div><strong>Testing & Validation:</strong> Experimental Testing, Sensor Integration, Arduino</div>
+                <div><strong>Analysis & Software:</strong> ANSYS (CFD), MATLAB, Python</div>
+                <div><strong>Manufacturing:</strong> Mechanical Assembly, Machining, Quality Control</div>
               </div>
 
               <script>window.print();</script>
