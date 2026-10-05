@@ -47,7 +47,7 @@ export default function Hero({ onViewProjects }: HeroProps) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/[0.02] border border-white/[0.05]">
               <span className="w-2 h-2 rounded-full bg-[#D32F2F] animate-pulse" />
               <span className="font-mono text-[10px] uppercase tracking-widest text-[#B0B0B0]">
-                Wipro Infrastructure Engineering
+                Mechanical Engineering Graduate
               </span>
             </div>
 
@@ -62,10 +62,7 @@ export default function Hero({ onViewProjects }: HeroProps) {
             </div>
 
             <p className="max-w-xl text-[#B0B0B0] text-sm sm:text-base leading-relaxed">
-              Mechanical Engineering graduate currently working at Wipro
-              Infrastructure Engineering, Chennai. Passionate about automotive
-              design, CAD modeling, product development, and engineering
-              innovation.
+              Mechanical Engineering graduate with practical exposure to manufacturing, assembly, inspection, and testing. Interested in automotive design, CAD modeling, product development, and mechanical engineering.
             </p>
 
             {/* Technical Info */}
@@ -90,10 +87,10 @@ export default function Hero({ onViewProjects }: HeroProps) {
 
               <div>
                 <span className="block text-[10px] text-[#B0B0B0] uppercase">
-                  Current Role
+                  Industrial Exposure
                 </span>
                 <span className="text-[#EF5350] text-xs font-semibold">
-                  Apprentice Engineer
+                  Manufacturing & Hydraulics
                 </span>
               </div>
             </div>
